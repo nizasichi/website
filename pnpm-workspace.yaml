@@ -1,11 +1,14 @@
+packages:
+  - "."
+
 allowBuilds:
-  '@parcel/watcher': false
-  '@tailwindcss/oxide': false
+  "@parcel/watcher": false
+  "@tailwindcss/oxide": false
   esbuild: false
   unrs-resolver: false
   vue-demi: false
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - "@parcel/watcher"
   - esbuild
   - unrs-resolver
   - vue-demi
