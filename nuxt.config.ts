@@ -1,0 +1,42 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui'
+  ],
+
+  devtools: {
+    enabled: true
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/cloudy_16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/cloudy_32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/cloudy_48x48.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/cloudy_180x180.png' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/cloudy_192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/cloudy_512x512.png' }
+      ]
+    }
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  routeRules: {
+    '/': { prerender: true }
+  },
+
+  compatibilityDate: '2026-06-30',
+
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  }
+})

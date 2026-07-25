@@ -1,0 +1,29 @@
+name: Update License Year
+
+on:
+  schedule:
+    - cron: "0 0 1 1 *"
+
+jobs:
+  update-year:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update copyright year
+        run: |
+          YEAR=$(date +%Y)
+          sed -i "s/Copyright (c) [0-9]\{4\}/Copyright (c) $YEAR/" LICENSE
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Update copyright year"
+          title: "Update copyright year to $(date +%Y)"
+          body: "Automated update of the copyright year in LICENSE."
+          branch: update-license-year
+          author: "Year Guy <nudge@niza.dev>"
+          delete-branch: true
