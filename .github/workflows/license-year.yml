@@ -1,8 +1,8 @@
 name: Update License Year
-
 on:
   schedule:
     - cron: "0 0 1 1 *"
+  workflow_dispatch:
 
 jobs:
   update-year:
@@ -14,15 +14,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Update copyright year
+        id: update
         run: |
           YEAR=$(date +%Y)
           sed -i "s/Copyright (c) [0-9]\{4\}/Copyright (c) $YEAR/" LICENSE
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update copyright year"
-          title: "Update copyright year to $(date +%Y)"
+          title: "Update copyright year to ${{ steps.update.outputs.year }}"
           body: "Automated update of the copyright year in LICENSE."
           branch: update-license-year
           author: "Year Guy <nudge@niza.dev>"
