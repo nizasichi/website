@@ -12,6 +12,15 @@
       size: 'xl',
       color: 'neutral',
       variant: 'subtle'
+    }, {
+      label: 'My Linkedin',
+      to: 'https://www.linkedin.com/in/nizasichi/',
+      target: '_blank',
+      icon: 'i-simple-icons-linkedin',
+      size: 'xl',
+      color: 'neutral',
+      variant: 'subtle'
+
     }]"
   >
     <template #description>
