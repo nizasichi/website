@@ -20,7 +20,16 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/cloudy_192x192.png' },
         { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/cloudy_512x512.png' }
       ]
-    }
+    },
+    meta: [
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        charset: 'utf-8'
+      }
+    ]
   },
 
   css: ['~/assets/css/main.css'],
