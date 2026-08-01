@@ -1,8 +1,18 @@
 ---
 title: My Third Markdown Page
 description: Words Words Words Description (lore in lorem)
-date: 2026-07-31
+date: 2026-07-13
 image: /cloudy_512x512.png
+authors:
+  - name: Niza Sichi
+    to: niza.dev
+    username: Niza
+    avatar:
+      src: /cloudy_192x192.png
+  - name: Someone Else
+    to: https://github.com/antfu
+    avatar:
+      src: https://github.com/antfu.png
 ---
 
 Lorem ipsum dolor sit amet, coal ore adipiscing elit. Etiam sit amet iron ore pellentesque, tempus diamond pickaxe eget, sceleriesque obsidian. Mauris et quam stone odio. Donec ex purus venenatis in fringilla ac, dapibus id redstone ore. Nam volutpat sollicitudin emerald ore, quis vestibulum lapis lazuli ore lacus elementum ac. Etiam sagittis nisi feugiat, vestibulum gold ore et, maximus copper ore ante. Nam viverra condimentum quartz ore odio nec dignissim. Ut ut sapien iaculis, consectetur deepslate coal et, elementum ancient debris mauris.

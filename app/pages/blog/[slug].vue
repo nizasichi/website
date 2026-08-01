@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const slug = useRoute().params.slug
 const path = `/blog/${slug}`
 
@@ -15,14 +15,6 @@ const { data: surround } = await useAsyncData(`blog-${slug}-surround`, () =>
   }).order('date', 'DESC')
 )
 
-const formatDate = (dateString) => {
-  return new Date(dateString).toLocaleDateString('en-CH', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  })
-}
-
 const { copy, copied } = useClipboard()
 const toast = useToast()
 const articleLink = computed(() => `${window?.location}`)
@@ -34,7 +26,10 @@ function handleCopyLink() {
 </script>
 
 <template>
-  <UPage v-if="post">
+  <UPage
+    v-if="post"
+    class="pt-24 sm:pt-28"
+  >
     <ULink
       to="/blog"
       class="text-sm flex items-center gap-1"
@@ -65,14 +60,7 @@ function handleCopyLink() {
       </p>
 
       <div class="flex items-center justify-center gap-2 mt-2">
-        <UUser
-          orientation="vertical"
-          color="neutral"
-          variant="outline"
-          class="justify-center items-center text-center"
-          name="Niza Sichi"
-          :avatar="{ src: '/cloudy_192x192.png' }"
-        />
+        <UserAvatar />
       </div>
     </div>
 
