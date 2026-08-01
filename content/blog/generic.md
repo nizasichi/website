@@ -1,7 +1,7 @@
 ---
-title: My First Markdown Page
+title: My Third Markdown Page
 description: Words Words Words Description (lore in lorem)
-date: 2026-07-15
+date: 2026-07-31
 image: /cloudy_512x512.png
 ---
 

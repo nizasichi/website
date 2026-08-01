@@ -1,11 +1,19 @@
 <script setup>
 const slug = useRoute().params.slug
+const path = `/blog/${slug}`
+
 const { data: post } = await useAsyncData(`blog-${slug}`, () => {
-  return queryCollection('blog').path(`/blog/${slug}`).first()
+  return queryCollection('blog').path(path).first()
 })
 if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
+
+const { data: surround } = await useAsyncData(`blog-${slug}-surround`, () =>
+  queryCollectionItemSurroundings('blog', path, {
+    fields: ['description']
+  }).order('date', 'DESC')
+)
 
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('en-CH', {
@@ -13,6 +21,15 @@ const formatDate = (dateString) => {
     month: 'short',
     day: 'numeric'
   })
+}
+
+const { copy, copied } = useClipboard()
+const toast = useToast()
+const articleLink = computed(() => `${window?.location}`)
+
+function handleCopyLink() {
+  copy(articleLink.value)
+  toast.add({ title: 'Article link copied to clipboard', color: 'success', icon: 'i-lucide-check-circle' })
 }
 </script>
 
@@ -22,7 +39,7 @@ const formatDate = (dateString) => {
       to="/blog"
       class="text-sm flex items-center gap-1"
     >
-      <UIcon name="lucide:chevron-left" />
+      <UIcon name="i-lucide-chevron-left" />
       Blog
     </ULink>
 
@@ -64,6 +81,22 @@ const formatDate = (dateString) => {
         v-if="post.body"
         :value="post"
       />
+
+      <div class="flex items-center justify-end gap-2 text-sm text-muted">
+        <UButton
+          size="sm"
+          variant="link"
+          color="neutral"
+          :label="copied ? 'Copied!' : 'Copy link'"
+          :icon="copied ? 'i-lucide-check' : 'i-lucide-link'"
+          class="group"
+          :ui="{
+            leadingIcon: 'opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+          }"
+          @click="handleCopyLink"
+        />
+      </div>
+      <UContentSurround :surround="surround" />
     </UPageBody>
   </UPage>
 </template>

@@ -19,6 +19,14 @@
         color="neutral"
         variant="ghost"
       />
+      <UButton
+        to="https://www.linkedin.com/in/nizasichi/"
+        target="_blank"
+        icon="i-simple-icons-linkedin"
+        aria-label="Linkedin"
+        color="neutral"
+        variant="ghost"
+      />
     </template>
   </UFooter>
 </template>
