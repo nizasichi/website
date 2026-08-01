@@ -1,6 +1,4 @@
 <script setup>
-import AppFooter from './components/AppFooter.vue'
-
 const title = 'Niza Sichi - Software Engineer'
 const description = 'Portfolio and personal site of Niza, a software engineer. Projects, writing, and ways to get in touch.'
 
@@ -22,14 +20,11 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <AppHeader />
     <NuxtLayout>
       <UMain class="relative">
         <NuxtPage />
       </UMain>
       <USeparator />
-
-      <AppFooter />
     </NuxtLayout>
   </UApp>
 </template>
