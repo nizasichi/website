@@ -45,6 +45,15 @@ export default defineNuxtConfig({
       include: []
     }
   },
+  hooks: {
+    'content:file:afterParse'(ctx) {
+      const { file, content } = ctx
+      const wordsPerMinute = 200
+      const text = typeof file.body === 'string' ? file.body : ''
+      const wordCount = text.split(/\s+/).length
+      content.minRead = Math.ceil(wordCount / wordsPerMinute)
+    }
+  },
 
   eslint: {
     config: {
