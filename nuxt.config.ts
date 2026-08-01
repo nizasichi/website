@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxt/content'
   ],
 
   devtools: {
@@ -39,6 +40,11 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2026-06-30',
+  vite: {
+    optimizeDeps: {
+      include: []
+    }
+  },
 
   eslint: {
     config: {
