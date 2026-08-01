@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxt/image'
   ],
 
   devtools: {
@@ -45,6 +46,7 @@ export default defineNuxtConfig({
       include: []
     }
   },
+  debug: true,
   hooks: {
     'content:file:afterParse'(ctx) {
       const { file, content } = ctx
