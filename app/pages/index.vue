@@ -13,7 +13,7 @@
       }]"
     >
       <template #description>
-        Graduate <strong> Software Engineer</strong> with a passion for backend development, <br> distributed systems, cloud infrastructure, and building things that work!
+        Graduate <strong> Software Engineer</strong> with a passion for backend development, <br> distributed systems, cloud infrastructure, and building things that work! This website is a WIP right now!
       </template>
     </UPageHero>
   </div>
