@@ -4,6 +4,8 @@ allowBuilds:
   esbuild: false
   unrs-resolver: false
   vue-demi: false
+minimumReleaseAgeExclude:
+  - "@iconify-json/lucide@1.2.138"
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - esbuild
