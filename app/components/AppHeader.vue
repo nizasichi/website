@@ -22,7 +22,7 @@ const navlinks: NavigationMenuItem[] = [
       }"
     >
       <template #list-trailing>
-        <UColorModeButton />
+        <ColorModeButton  />
       </template>
     </UNavigationMenu>
   </div>
