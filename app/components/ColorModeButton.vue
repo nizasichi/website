@@ -5,7 +5,6 @@ const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark')
 
 const switchTheme = () => {
   colorMode.preference = nextTheme.value
-  console.log("Switched!")
 }
 
 const startViewTransition = (event: MouseEvent) => {
