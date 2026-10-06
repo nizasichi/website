@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxt/content',
+    '@nuxt/image',
+    '@vueuse/nuxt'
   ],
 
   devtools: {
@@ -19,6 +22,15 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/cloudy_180x180.png' },
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/cloudy_192x192.png' },
         { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/cloudy_512x512.png' }
+      ],
+      meta: [
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1'
+        },
+        {
+          charset: 'utf-8'
+        }
       ]
     }
   },
@@ -30,6 +42,21 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2026-06-30',
+  vite: {
+    optimizeDeps: {
+      include: []
+    }
+  },
+  debug: true,
+  hooks: {
+    'content:file:afterParse'(ctx) {
+      const { file, content } = ctx
+      const wordsPerMinute = 200
+      const text = typeof file.body === 'string' ? file.body : ''
+      const wordCount = text.split(/\s+/).length
+      content.minRead = Math.ceil(wordCount / wordsPerMinute)
+    }
+  },
 
   eslint: {
     config: {
